@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beauty Orel — Студия красоты в Орле</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1eb;
+            color: #171513;
+            line-height: 1.5;
+        }
+
+        /* HEADER */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #e6c28b;
+            font-family: Georgia, serif;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #e6c28b;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 720px;
+            background:
+                linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.58)),
+                url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+
+            display: flex;
+            align-items: center;
+            padding: 120px 7%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .subtitle {
+            color: #e6c28b;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 82px;
+            line-height: .95;
+            font-weight: normal;
+            margin-bottom: 28px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 38px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            background: #e6c28b;
+            color: #171513;
+            padding: 16px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #f0d3a0;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,.7);
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: #171513;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-label {
+            color: #a37b43;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 50px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 8px;
+            border: 1px solid #eee7dd;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(0,0,0,.08);
+        }
+
+        .card-number {
+            color: #c09a63;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* PRICES */
+
+        .price-section {
+            background: #11100f;
+            color: white;
+        }
+
+        .price-section .section-label {
+            color: #e6c28b;
+        }
+
+        .prices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 55px;
+        }
+
+        .price-column h3 {
+            color: #e6c28b;
+            font-family: Georgia, serif;
+            font-size: 29px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #3b3834;
+            color: #ddd;
+        }
+
+        .price span:last-child {
+            color: #e6c28b;
+            white-space: nowrap;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 330px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* ABOUT */
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 500px;
+            background:
+                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+            border-radius: 6px;
+        }
+
+        .about-text {
+            max-width: 600px;
+            font-size: 19px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .about-list {
+            margin-top: 30px;
+            list-style: none;
+        }
+
+        .about-list li {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .about-list li::before {
+            content: "✦";
+            color: #b58a50;
+            margin-right: 12px;
+        }
+
+        /* REVIEWS */
+
+        .reviews-section {
+            background: #eee7dd;
+        }
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review {
+            background: white;
+            padding: 35px;
+            border-radius: 6px;
+        }
+
+        .stars {
+            color: #c49a61;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .review p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .review-name {
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #e6c28b;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            color: #4b3b29;
+        }
+
+        /* BOOKING FORM */
+
+        .booking-form {
+            max-width: 520px;
+            margin: 35px auto 0;
+            display: grid;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 17px 20px;
+            border: none;
+            border-radius: 6px;
+            background: white;
+            color: #171513;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus {
+            box-shadow: 0 0 0 2px rgba(23,21,19,.25);
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 17px 20px;
+            border: none;
+            border-radius: 30px;
+            background: #171513;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .form-button:hover {
+            background: #292623;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #11100f;
+            color: #aaa;
+            padding: 35px 7%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #e6c28b;
+            font-family: Georgia, serif;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            h1 {
+                font-size: 65px;
+            }
+
+            .services,
+            .prices,
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 20px 6%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 680px;
+                padding: 120px 6% 70px;
+            }
+
+            h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .section-title {
+                font-size: 38px;
+                margin-bottom: 35px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 400px;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .contact h2 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .button {
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="#" class="logo">
+        Beauty Orel
+    </a>
+
+    <nav>
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
+        <a href="#gallery">Работы</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+
+</header>
+
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="subtitle">
+            BEAUTY STUDIO · ОРЁЛ
+        </div>
+
+        <h1>
+            Beauty<br>
+            Orel
+        </h1>
+
+        <p>
+            Маникюр · Ресницы · Брови
+            <br>
+            Создаём красоту, в которой комфортно быть собой.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="button" href="#contacts">
+                Записаться
+            </a>
+
+            <a class="button button-outline" href="#services">
+                Смотреть услуги
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- УСЛУГИ -->
+
+<section id="services">
+
+    <div class="section-label">
+        Beauty Orel
+    </div>
+
+    <h2 class="section-title">
+        Наши услуги
+    </h2>
+
+    <div class="services">
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Маникюр
+            </h3>
+
+            <p>
+                Аппаратный и классический маникюр,
+                покрытие гель-лаком и аккуратный дизайн.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Ресницы
+            </h3>
+
+            <p>
+                Наращивание ресниц с естественным
+                или выразительным эффектом.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Брови
+            </h3>
+
+            <p>
+                Коррекция, окрашивание и ламинирование
+                бровей с учётом формы лица.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ЦЕНЫ -->
+
+<section id="prices" class="price-section">
+
+    <div class="section-label">
+        Стоимость
+    </div>
+
+    <h2 class="section-title">
+        Цены
+    </h2>
+
+    <div class="prices">
+
+        <div class="price-column">
+
+            <h3>Маникюр</h3>
+
+            <div class="price">
+                <span>Классический</span>
+                <span>1 000 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Аппаратный</span>
+                <span>1 200 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Гель-лак</span>
+                <span>1 500 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Дизайн</span>
+                <span>от 200 ₽</span>
+            </div>
+
+        </div>
+
+        <div class="price-column">
+
+            <h3>Ресницы</h3>
+
+            <div class="price">
+                <span>Классика</span>
+                <span>2 000 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>2D</span>
+                <span>2 500 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>3D</span>
+                <span>3 000 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Снятие</span>
+                <span>500 ₽</span>
+            </div>
+
+        </div>
+
+        <div class="price-column">
+
+            <h3>Брови</h3>
+
+            <div class="price">
+                <span>Коррекция</span>
+                <span>800 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Окрашивание</span>
+                <span>800 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Ламинирование</span>
+                <span>1 500 ₽</span>
+            </div>
+
+            <div class="price">
+                <span>Комплекс</span>
+                <span>2 000 ₽</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ГАЛЕРЕЯ -->
+
+<section id="gallery">
+
+    <div class="section-label">
+        Наши работы
+    </div>
+
+    <h2 class="section-title">
+        Атмосфера Beauty Orel
+    </h2>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" alt="Маникюр">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" alt="Маникюр">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85" alt="Красота">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=85" alt="Красота">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85" alt="Косметика">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85" alt="Салон красоты">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- О НАС -->
+
+<section id="about">
+
+    <div class="about-wrapper">
+
+        <div class="about-image"></div>
+
+        <div>
+
+            <div class="section-label">
+                О студии
+            </div>
+
+            <h2 class="section-title">
+                Красота<br>
+                без лишнего
+            </h2>
+
+            <p class="about-text">
+                Beauty Orel — современная студия красоты в Орле,
+                созданная для тех, кто ценит качество, аккуратность
+                и индивидуальный подход.
+            </p>
+
+            <p class="about-text" style="margin-top:20px;">
+                Мы создаём ухоженный образ и атмосферу,
+                в которую хочется возвращаться снова.
+            </p>
+
+            <ul class="about-list">
+
+                <li>Индивидуальный подход</li>
+                <li>Качественные материалы</li>
+                <li>Уютная атмосфера</li>
+                <li>Аккуратная работа</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ОТЗЫВЫ -->
+
+<section class="reviews-section">
+
+    <div class="section-label">
+        Отзывы
+    </div>
+
+    <h2 class="section-title">
+        Что говорят гости
+    </h2>
+
+    <div class="reviews">
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Очень понравился результат!
+                Мастер внимательно отнеслась к моим пожеланиям,
+                всё получилось аккуратно и красиво.
+            </p>
+
+            <div class="review-name">
+                Анна
+            </div>
+
+        </div>
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Приятная атмосфера, красивый интерьер
+                и отличная работа. Обязательно приду ещё.
+            </p>
+
+            <div class="review-name">
+                Мария
+            </div>
+
+        </div>
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Делала маникюр и оформление бровей.
+                Всё очень аккуратно, результатом довольна.
+            </p>
+
+            <div class="review-name">
+                Екатерина
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- КОНТАКТЫ И ФОРМА -->
+
+<section id="contacts" class="contact">
+
+    <div class="section-label">
+        Запись
+    </div>
+
+    <h2>
+        Запишитесь к нам
+    </h2>
+
+    <p>
+        Beauty Orel · Орёл
+    </p>
+
+    <div class="contact-info">
+
+        <p>
+            Ежедневно · 10:00–20:00
+        </p>
+
+        <p>
+            +7 (900) 000-00-00
+        </p>
+
+    </div>
+
+
+    <form class="booking-form">
+<input
+    type="text"
+    name="name"
+    placeholder="Ваше имя"
+    required
+>
+
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Номер телефона"
+    required
+>
+<select name="service" required>
+
+            <option value="">
+                Выберите услугу
+            </option>
+
+            <option>
+                Маникюр
+            </option>
+
+            <option>
+                Ресницы
+            </option>
+
+            <option>
+                Брови
+            </option>
+
+        </select>
+<input
+    type="date"
+    name="date"
+    required
+>
+        <button
+            type="submit"
+            class="form-button"
+        >
+            Отправить заявку
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>Beauty Orel</strong> · Студия красоты в Орле
+    </p>
+
+    <p style="margin-top:10px;">
+        Маникюр · Ресницы · Брови
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT ФОРМЫ -->
+
+<script>
+
+const form = document.querySelector(".booking-form");
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+
+        const response = await fetch("/api/booking", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.ok) {
+
+            alert("Спасибо! Заявка отправлена 💛");
+
+            form.reset();
+
+        } else {
+
+            alert("Не удалось отправить заявку.");
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Ошибка соединения с сервером.");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
